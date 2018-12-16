@@ -29,7 +29,7 @@ const getTimerText = () => {
 
 const updateTimer = (chatId, messageId) => 
 	setInterval(_ => {
-        bot.editMessageText({chatId, messageId}, getTimerText())
+        bot.editMessageText({chatId, messageId}, getTimerText(), {parseMode: 'html'})
         	.catch(error => console.log('sendMessage', error));
     }, 60000);
 
