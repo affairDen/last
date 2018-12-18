@@ -51,4 +51,11 @@ bot.on('newChatMembers',  ({ chat: { id: chatId } }) => {
 		.catch(error => console.log('sendMessage', error));
 });
 
+bot.on('*', (resp, { type }) => {
+	if (type === 'leftChatMember' || type === 'newChatMembers') {
+		bot.deleteMessage(resp.chat.id, resp.message_id)
+			.catch(console.log);
+	}
+});
+
 bot.start();
