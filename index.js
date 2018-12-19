@@ -15,7 +15,7 @@ const getCounters = () => {
 	const now = new Date();
 	const diff = electionDay - now + (now.getTimezoneOffset() * 60 * 1000) - UKRAIN_GMT;
 	const restDate = new Date(diff % DAY);
-	const days = Math.round(diff / DAY);
+	const days = parseInt(diff / DAY);
 	const hours = restDate.getHours();
 	const minutes = restDate.getMinutes() + 1;
 
